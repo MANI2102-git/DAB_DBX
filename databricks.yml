@@ -7,10 +7,21 @@ variables:
     default: "b0f2252e-7316-422e-83e0-04ae4ef8963d"
     description: Databricks service principal application ID
 
-include:
-  - notebooks/**/*.ipynb
-  - resources/*.yml
-  - resources/*/*.yml
+sync:
+  include:
+    - notebooks/**/*.ipynb
+    - resources/*.yml
+    - resources/*/*.yml
+
+resources:
+  jobs:
+    employee_data:
+      name: EmployeeData
+      tasks:
+        - task_key: generate_csv
+          notebook_task:
+            notebook_path: ./notebooks/01_generate_csv_file.ipynb
+            source: WORKSPACE
 
 targets:
   # The 'dev' target, for development purposes. This target is the default.
