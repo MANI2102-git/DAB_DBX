@@ -7,6 +7,12 @@ variables:
     default: "b0f2252e-7316-422e-83e0-04ae4ef8963d"
     description: Databricks service principal application ID
 
+artifacts:
+  whl_test:
+    type: whl
+    path:
+    build: python -m pip install build && python -m build --wheel
+
 sync:
   include:
     - notebooks/**/*.ipynb
