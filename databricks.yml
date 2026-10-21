@@ -8,6 +8,7 @@ variables:
     description: Databricks service principal application ID
 
 include:
+  - notebooks/**
   - resources/*.yml
   - resources/*/*.yml
 
